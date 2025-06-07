@@ -12,7 +12,7 @@ class BookApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const GetMaterialApp(
-       home: SplashView(),
+      home: SplashView(),
     );
   }
 }
