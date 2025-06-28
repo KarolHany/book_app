@@ -1,8 +1,11 @@
+import 'package:book_app/constants.dart';
 import 'package:book_app/core/utils/assets.dart';
 import 'package:book_app/core/utils/styles.dart';
 import 'package:book_app/features/home/presentation/views/widgets/custom_appbar.dart';
 import 'package:book_app/features/home/presentation/views/widgets/featured_books_list_view.dart';
 import 'package:flutter/material.dart';
+
+import 'best_seller_list_view_item.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -33,43 +36,3 @@ class HomeViewBody extends StatelessWidget {
   }
 }
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 130,
-      child: Row(
-        children: [
-          AspectRatio(
-            aspectRatio: 2.7 / 4,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.red,
-                borderRadius: BorderRadius.circular(12),
-                image: const DecorationImage(
-                  image: AssetImage(AssetsData.testImage),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(
-            width: 30,
-          ),
-           Column(
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.5,
-                child: const Text(
-                'Harry Potter and the Goblet of Fire',
-                style: Styles.textStyle20,
-              ))
-            ],
-          )
-        ],
-      ),
-    );
-  }
-}
