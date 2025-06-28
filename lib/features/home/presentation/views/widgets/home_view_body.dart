@@ -1,5 +1,3 @@
-import 'package:book_app/constants.dart';
-import 'package:book_app/core/utils/assets.dart';
 import 'package:book_app/core/utils/styles.dart';
 import 'package:book_app/features/home/presentation/views/widgets/custom_appbar.dart';
 import 'package:book_app/features/home/presentation/views/widgets/featured_books_list_view.dart';
