@@ -1,9 +1,7 @@
 import 'package:book_app/constants.dart';
-import 'package:book_app/features/home/presentation/views/home_view.dart';
-import 'package:book_app/features/splash/presentation/views/splash_view.dart';
+import 'package:book_app/core/utils/app_router.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -17,7 +15,8 @@ class BookApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  GetMaterialApp(
+    return  MaterialApp.router(
+      routerConfig: AppRouter.router,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: kPrimaryColor,
         textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme)
@@ -25,7 +24,6 @@ class BookApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       locale: DevicePreview.locale(context), // Simulate locale
       builder: DevicePreview.appBuilder, // Apply device preview
-      home: const HomeView(),
     );
   }
 }
