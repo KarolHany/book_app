@@ -1,8 +1,7 @@
-import 'package:book_app/constants.dart';
+import 'package:book_app/core/utils/app_router.dart';
 import 'package:book_app/core/utils/assets.dart';
-import 'package:book_app/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 import 'sliding_text_animation.dart';
 
@@ -23,7 +22,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     super.initState();
     initStateAnimation();
-    navigateToHome(); 
+    navigateToHome();
   }
 
   @override
@@ -65,8 +64,10 @@ class _SplashViewBodyState extends State<SplashViewBody>
     Future.delayed(
       const Duration(seconds: 4),
       () {
-        Get.to(const HomeView(),
-            transition: Transition.fade, duration: kDurationTransition);
+        // Get.to(const HomeView(),
+        //     transition: Transition.fade, duration: kDurationTransition);
+
+        GoRouter.of(context).push(AppRouter.kHomeView);
       },
     );
   }
