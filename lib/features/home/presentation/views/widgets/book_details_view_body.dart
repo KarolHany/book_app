@@ -1,3 +1,4 @@
+import 'package:book_app/core/utils/styles.dart';
 import 'package:book_app/features/home/presentation/views/widgets/custom_app_bar_book_details.dart';
 import 'package:book_app/features/home/presentation/views/widgets/custom_book_image_item.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +15,17 @@ class BookDetailsViewBody extends StatelessWidget {
         children: [
            const CustomAppBarBookDetails(),
            Padding(
-             padding: EdgeInsets.symmetric(horizontal:width * .2 , vertical: 30),
+             padding: EdgeInsets.symmetric(horizontal:width * .2 , vertical: 40),
              child: const CustomBookImageItem(),
            ),
+           const Text('The Let Them Theory' , style: Styles.textStyle30,),
+            const SizedBox(height: 6,),
+           Opacity(
+            opacity: .7,
+             child: Text('Mel Robbins' , style: Styles.textStyle18.copyWith(
+              fontStyle: FontStyle.italic,
+             ),),
+           )
         ],
       ),
     );
