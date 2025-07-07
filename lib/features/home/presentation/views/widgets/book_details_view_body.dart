@@ -1,10 +1,6 @@
-import 'package:book_app/core/utils/styles.dart';
-import 'package:book_app/core/widgets/custom_text_buttom.dart';
-import 'package:book_app/features/home/presentation/views/widgets/book_rating.dart';
-import 'package:book_app/features/home/presentation/views/widgets/books_buttom_action.dart';
+import 'package:book_app/features/home/presentation/views/widgets/book_details_section.dart';
 import 'package:book_app/features/home/presentation/views/widgets/custom_app_bar_book_details.dart';
-import 'package:book_app/features/home/presentation/views/widgets/custom_book_image_item.dart';
-import 'package:book_app/features/home/presentation/views/widgets/similar_books_list_view.dart';
+import 'package:book_app/features/home/presentation/views/widgets/similar_books_section.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -12,61 +8,32 @@ class BookDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: Column(
-          children: [
-            const CustomAppBarBookDetails(),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: width * .2, vertical: 30),
-              child: const CustomBookImageItem(),
-            ),
-            const Text(
-              'The Let Them Theory',
-              style: Styles.textStyle30,
-            ),
-            const SizedBox(
-              height: 6,
-            ),
-            Opacity(
-              opacity: .7,
-              child: Text(
-                'Mel Robbins',
-                style: Styles.textStyle18.copyWith(
-                  fontStyle: FontStyle.italic,
+    return const CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              children: [
+                CustomAppBarBookDetails(),
+                BookDetailsSection(),
+                Expanded(
+                  child: SizedBox(
+                    height: 50,
+                  ),
                 ),
-              ),
-            ),
-            const SizedBox(
-              height: 18,
-            ),
-            const BookRating(
-              mainAxisAlignment: MainAxisAlignment.center,
-            ),
-            const SizedBox(
-              height: 37,
-            ),
-            const BooksButtonAction(),
-            const SizedBox(
-              height: 40,
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'You Can Also Like',
-                style: Styles.textStyle16.copyWith(
-                  fontWeight: FontWeight.w600,
+                SimilarBooksSection(),
+                SizedBox(
+                  height: 40,
                 ),
-              ),
+              ],
             ),
-            const SizedBox(height: 16,),
-            const SimilarBooksListView(),
-            const SizedBox(height: 40,),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }
+
+
